@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./ContactForm.css";
+import axios from "axios";
 
 const ContactForm = () => {
 
@@ -9,20 +11,21 @@ const ContactForm = () => {
     e.preventDefault() 
     const formData = new FormData(e.currentTarget);
     console.log(formData);
-    console.log([...formData.entries()]);
+    // console.log([...formData.entries()]);
     setValue(value + 1);
     e.currentTarget.reset();
+   
 
-
+   
     fetch('http://localhost:3000/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
         body: JSON.stringify({formData})
       });
       
     }
+
+
+    
 
     
 
